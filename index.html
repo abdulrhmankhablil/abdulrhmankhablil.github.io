@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f3ee">
+    <meta name="description" content="Khablil's student profile — exploring web technology, design, and the web.">
+    <title>Khablil | Web Technology Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f5f3ee;
+        --ink: #17231d;
+        --muted: #68716b;
+        --green: #2f684d;
+        --line: #d9ddd5;
+        --card: #fffefa;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Manrope", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; }
+
+      .page {
+        width: min(1080px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      header {
+        height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .wordmark {
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+        text-decoration: none;
+      }
+
+      .wordmark span { color: var(--green); }
+
+      .nav-note, .eyebrow, .index, .status {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nav-note { color: var(--muted); }
+
+      main { padding: 78px 0 80px; }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 310px;
+        gap: 72px;
+        align-items: center;
+        padding-bottom: 84px;
+      }
+
+      .eyebrow { color: var(--green); }
+
+      h1 {
+        max-width: 650px;
+        margin: 22px 0;
+        font-size: clamp(52px, 8vw, 90px);
+        line-height: 0.99;
+        letter-spacing: -0.085em;
+      }
+
+      h1 em {
+        color: var(--green);
+        font-style: normal;
+      }
+
+      .intro {
+        max-width: 510px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 3px;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      .button:hover { transform: translateY(-2px); }
+      .button.primary { background: var(--ink); color: white; }
+      .button.secondary:hover { background: var(--card); }
+
+      .profile-card {
+        position: relative;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 25px;
+        background: var(--green);
+        color: #f5f3ee;
+      }
+
+      .profile-card::after {
+        position: absolute;
+        right: -56px;
+        bottom: 48px;
+        width: 210px;
+        height: 210px;
+        border: 1px solid rgb(255 255 255 / 22%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 25px rgb(255 255 255 / 5%), 0 0 0 52px rgb(255 255 255 / 4%);
+        content: "";
+      }
+
+      .card-top, .card-bottom { position: relative; z-index: 1; }
+      .index { color: #c9dfd0; }
+
+      .initials {
+        margin: 22px 0 12px;
+        font-size: 104px;
+        font-weight: 800;
+        letter-spacing: -0.11em;
+        line-height: 1;
+      }
+
+      .card-bottom p { margin: 0; }
+      .card-bottom .label { color: #c9dfd0; font-size: 12px; }
+      .card-bottom .course { margin-top: 5px; font-size: 20px; font-weight: 700; }
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 24px;
+        letter-spacing: -0.06em;
+      }
+
+      .section-note { color: var(--muted); font-size: 13px; }
+
+      .learning-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .learning-item { padding: 24px 26px 27px 0; }
+      .learning-item + .learning-item { padding-left: 26px; border-left: 1px solid var(--line); }
+      .learning-item .index { color: var(--green); }
+      .learning-item h3 { margin: 18px 0 8px; font-size: 17px; letter-spacing: -0.04em; }
+      .learning-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        padding-top: 72px;
+      }
+
+      .about p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.85;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 20px;
+        color: var(--green);
+      }
+
+      .status::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #65a57b;
+        content: "";
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 22px 0 28px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      footer a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+      @media (max-width: 720px) {
+        .page { width: min(100% - 36px, 540px); }
+        header { height: 70px; }
+        main { padding: 52px 0 56px; }
+        .hero { grid-template-columns: 1fr; gap: 38px; padding-bottom: 62px; }
+        .profile-card { min-height: 270px; }
+        .initials { font-size: 84px; }
+        .learning-grid { grid-template-columns: 1fr; }
+        .learning-item, .learning-item + .learning-item { padding: 22px 0; border-left: 0; }
+        .learning-item + .learning-item { border-top: 1px solid var(--line); }
+        .learning-item h3 { margin-top: 11px; }
+        .about { grid-template-columns: 1fr; gap: 16px; padding-top: 54px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a class="wordmark" href="#" aria-label="Khablil home">k<span>.</span></a>
+        <span class="nav-note">Student profile · 2026</span>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Hello, I’m Khablil</p>
+            <h1>Learning to make the <em>web</em> work.</h1>
+            <p class="intro">I’m studying Web Technology and exploring how thoughtful design and code come together to create useful experiences online.</p>
+            <div class="actions">
+              <a class="button primary" href="https://github.com/abdulrhmankhablil" target="_blank" rel="noreferrer">
+                Find me on GitHub <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button secondary" href="#learning">What I’m learning <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+
+          <aside class="profile-card" aria-label="Khablil's course">
+            <div class="card-top">
+              <span class="index">PROFILE / 01</span>
+              <p class="initials" aria-hidden="true">K.</p>
+            </div>
+            <div class="card-bottom">
+              <p class="label">CURRENT COURSE</p>
+              <p class="course">Web Technology</p>
+            </div>
+          </aside>
+        </section>
+
+        <section id="learning" aria-labelledby="learning-title">
+          <div class="section-heading">
+            <h2 id="learning-title">A little about the journey</h2>
+            <span class="section-note">Curiosity, one line at a time.</span>
+          </div>
+          <div class="learning-grid">
+            <article class="learning-item">
+              <span class="index">01 / STRUCTURE</span>
+              <h3>Building with HTML</h3>
+              <p>Learning how to give web pages meaningful structure and make content accessible.</p>
+            </article>
+            <article class="learning-item">
+              <span class="index">02 / STYLE</span>
+              <h3>Exploring CSS</h3>
+              <p>Practicing layout, color, and responsive design to help pages feel clear on every screen.</p>
+            </article>
+            <article class="learning-item">
+              <span class="index">03 / INTERACTION</span>
+              <h3>Discovering JavaScript</h3>
+              <p>Getting familiar with the code that makes websites interactive and dynamic.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="about" aria-labelledby="about-title">
+          <div>
+            <p class="eyebrow">The mindset</p>
+            <h2 id="about-title" style="margin-top: 12px">Always learning.</h2>
+          </div>
+          <div>
+            <p>This page is a small snapshot of my learning journey. I’m interested in the foundations of the web, creative problem-solving, and making digital experiences easier to use.</p>
+            <span class="status">Currently studying Web Technology</span>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>Made by Khablil · Learning in progress</span>
+        <a href="https://github.com/abdulrhmankhablil" target="_blank" rel="noreferrer">GitHub profile ↗</a>
+      </footer>
+    </div>
+  </body>
+</html>
