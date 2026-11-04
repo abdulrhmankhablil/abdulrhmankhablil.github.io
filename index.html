@@ -192,6 +192,42 @@
       .learning-item h3 { margin: 18px 0 8px; font-size: 17px; letter-spacing: -0.04em; }
       .learning-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
 
+      .projects { padding-top: 72px; }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .project-card {
+        display: flex;
+        min-height: 190px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        border: 1px solid var(--line);
+        background: var(--card);
+      }
+
+      .project-card .index { color: var(--green); }
+      .project-card h3 { margin: 17px 0 8px; font-size: 19px; letter-spacing: -0.05em; }
+      .project-card p { margin: 0 0 20px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      .project-link:hover { color: var(--ink); }
+
       .about {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -245,7 +281,9 @@
         .learning-item, .learning-item + .learning-item { padding: 22px 0; border-left: 0; }
         .learning-item + .learning-item { border-top: 1px solid var(--line); }
         .learning-item h3 { margin-top: 11px; }
-        .about { grid-template-columns: 1fr; gap: 16px; padding-top: 54px; }
+        .projects, .about { padding-top: 54px; }
+        .projects-grid { grid-template-columns: 1fr; }
+        .about { grid-template-columns: 1fr; gap: 16px; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -270,7 +308,7 @@
               <a class="button primary" href="https://github.com/abdulrhmankhablil" target="_blank" rel="noreferrer">
                 Find me on GitHub <span aria-hidden="true">↗</span>
               </a>
-              <a class="button secondary" href="#learning">What I’m learning <span aria-hidden="true">↓</span></a>
+              <a class="button secondary" href="#projects">View my projects <span aria-hidden="true">↓</span></a>
             </div>
           </div>
 
@@ -306,6 +344,47 @@
               <span class="index">03 / INTERACTION</span>
               <h3>Discovering JavaScript</h3>
               <p>Getting familiar with the code that makes websites interactive and dynamic.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+          <div class="section-heading">
+            <h2 id="projects-title">Projects</h2>
+            <span class="section-note">A few things I’ve built.</span>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card">
+              <span class="index">01 / ORGANIZATION</span>
+              <h3>Library App</h3>
+              <p>A web app project for organizing and keeping track of books in a personal library.</p>
+              <a class="project-link" href="https://abdulrhmankhablil.github.io/library-app/" target="_blank" rel="noreferrer">
+                Open Library App <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+            <article class="project-card">
+              <span class="index">02 / GAME</span>
+              <h3>Tic-Tac-Toe</h3>
+              <p>A digital take on the classic tic-tac-toe game for a quick, familiar challenge.</p>
+              <a class="project-link" href="https://abdulrhmankhablil.github.io/tic-tac-toe/" target="_blank" rel="noreferrer">
+                Play Tic-Tac-Toe <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+            <article class="project-card">
+              <span class="index">03 / FORM DESIGN</span>
+              <h3>Sign-Up Form</h3>
+              <p>A sign-up form project that presents registration fields in a clear, approachable layout.</p>
+              <a class="project-link" href="https://abdulrhmankhablil.github.io/sign-up-form/" target="_blank" rel="noreferrer">
+                View Sign-Up Form <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+            <article class="project-card">
+              <span class="index">04 / TOOL</span>
+              <h3>Calculator</h3>
+              <p>A browser-based calculator project for working through everyday arithmetic.</p>
+              <a class="project-link" href="https://abdulrhmankhablil.github.io/Calculator-/" target="_blank" rel="noreferrer">
+                Open Calculator <span aria-hidden="true">↗</span>
+              </a>
             </article>
           </div>
         </section>
